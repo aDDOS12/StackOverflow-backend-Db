@@ -1,13 +1,20 @@
-﻿namespace EFCourseStackOverflow.Entities
+﻿using EFCourseStackOverflow.Interfaces;
+
+namespace EFCourseStackOverflow.Entities
 {
-    public class Question
+    public class Question : IVoteable
     {
-        public int QuestionID { get; set; }
+        public int Id { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
-        public int Score { get; set; }
-        public string Author { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
+        public int Score { get; set; }
+        public User User { get; set; }
+        public Guid UserId { get; set; }
+        public List<Answer> Answers { get; set; } = new List<Answer>();
+        public List<Comment> Comments { get; set; } = new List<Comment>();
+        public List<QuestionVote> QuestionVotes { get; set; } = new List<QuestionVote>();
+        public List<Tag> Tags { get; set; } = new List<Tag>();
     }
 }

@@ -1,12 +1,11 @@
 ﻿namespace EFCourseStackOverflow.Entities
 {
-    public class Vote
+    public abstract class Vote
     {
-        public int VoteID { get; set; }
+        //foreign key
+        public Guid UserId { get; set; }
+        //navigation property
+        public User User { get; set; }
         public int Value { get; set; }
-        public string Voter { get; set; }
-        // UserId
-        // QuestionId
-        // AnswerId
     }
 }
